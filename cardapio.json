@@ -1,0 +1,20 @@
+[
+    {
+        "dia": "Segunda"
+    },
+    {
+        "dia": "Terça"
+    },
+    {
+        "dia": "Quarta"
+    },
+    {
+        "dia": "Quinta"
+    },
+    {
+        "dia": "Sexta",
+        "cafe_da_manha": "arroz, feijão, frango grelhado, salada mistaarroz, feijão, frango grelhado, salada mistaarroz, feijão, frango grelhado, salada mista",
+        "almoco": "arroz, feijão, frango grelhado, salada mistaarroz, feijão, frango grelhado, salada mistaarroz, feijão, frango grelhado, salada mista",
+        "jantar": "arroz, feijão, frango grelhado, salada mistaarroz, feijão, frango grelhado, salada mistaarroz, feijão, frango grelhado, salada mista"
+    }
+]

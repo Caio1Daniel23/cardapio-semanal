@@ -1,0 +1,159 @@
+body{
+    background-image: url('img/fundo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.pagina-cardapio {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 40px 20px ; 
+}
+
+.pagina-cardapio h1 {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    color: #492b16;
+    font-weight: 800;
+}
+
+.grade-cardapio {
+    display: grid;
+    /* Define o número de colunas com base no tamanho da tela */
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    column-gap: 20px;
+    row-gap: 60px;
+    padding-bottom: 20px;
+}
+
+.card-dia {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
+    border-radius: 24px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.card-dia h2 {
+    text-align: center;
+    color: white;
+    font-size: 36px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.bloco-refeicao {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border-radius: 18px;
+    padding: 14px 16px 16px;
+    margin-top: 16px;
+    overflow: visible;
+    position: relative;
+}
+
+.icone-refeicao{
+    position: absolute;
+    width: 69px;
+    height: 69px;
+    left: -18px;
+    top: -10px;
+    z-index: 2;
+
+}
+
+.bloco-refeicao h3 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: -14px -16px 12px -16px;
+    padding: 8px 16px 8px 62px;
+    min-height: 28px;
+    line-height: 1.2;
+    border-radius: 18px 18px 0 0;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.cafe-da-manha h3,
+.almoco h3,
+.jantar h3 {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.bloco-refeicao p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+.card-dia h2{
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.cor-1 {
+    background-color: #c64f3e;
+}
+.cor-1 h2 {
+    background-color: #9e3527;
+}
+
+.cor-2 {
+    background-color: #e2a83b;
+}
+.cor-2 h2{
+    background-color: #b88327;
+}
+
+.cor-3 {
+    background-color: #d67f3a;
+}
+.cor-3 h2{
+    background-color: #b06225;
+}
+
+.cor-4 {
+    background-color: #7f9845;
+}
+.cor-4 h2{
+    background-color: #5f7431;
+}
+
+.cor-5 {
+    background-color: #b94838;
+}
+.cor-5 h2{
+    background-color: #8f2f24;
+}
+
+
+
+@media (max-width: 768px) {
+
+    .grade-cardapio {
+        grid-template-columns: repeat(2, 1fr) !important;
+        column-gap: 16px;
+        row-gap: 52px;
+    }
+
+}
+
+@media (max-width: 425px) {
+
+    .grade-cardapio {
+        grid-template-columns: repeat(1, 1fr) !important;
+        column-gap: 16px;
+        row-gap: 52px;
+    }
+
+}
