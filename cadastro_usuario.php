@@ -12,9 +12,9 @@ if (file_exists($arquivoJson)) {
     $usuarios = [];
 }
 
-echo "==============Cadastro de Usuario==============\n\n";
+echo "==============Cadastro de Usuário==============\n\n";
 
-echo "Digite o nome do seu usuario:\n";
+echo "Digite o nome do seu usuário:\n";
 $nome = (string)trim(fgets(STDIN));
 
 echo "\nDigite seu e-mail:\n";
