@@ -25,7 +25,6 @@ while (true) {
             echo "Opção inválida. Por favor, escolha um número entre 1 e 5.\n";
         }
     }
-
     //função para adicionar o cardápio do dia escolhido
        adicionarCardapio($cardapio, $indice);
 

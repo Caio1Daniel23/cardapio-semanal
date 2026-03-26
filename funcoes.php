@@ -86,3 +86,68 @@ function criarSlug($texto) {
 
     return $texto;
 }
+
+//__________________________________________________________________________________________________
+// Função para carregar os usuários do arquivo JSON
+function carregarUsuarios($arquivoJson) {
+    if (file_exists($arquivoJson)) {
+        $conteudo = file_get_contents($arquivoJson);
+        $usuarios = json_decode($conteudo, true);
+
+        if (is_array($usuarios)) {
+            return $usuarios;
+        }
+    }
+
+    return [];
+}
+
+//__________________________________________________________________________________________________
+// Função para gerar o ID do novo usuário
+function gerarProximoID($usuarios) {
+    $maiorID = 0;
+
+    foreach ($usuarios as $usuario) {
+        if (isset($usuario['id']) && $usuario['id'] > $maiorID) {
+            $maiorID = $usuario['id'];
+        }
+    }
+
+    return $maiorID + 1;
+}
+
+//__________________________________________________________________________________________________
+
+// Função para cadastrar um novo usuário
+function cadastrarUsuario($arquivoJson, $nome, $email, $senha) {
+    $usuarios = carregarUsuarios($arquivoJson);
+    $proximoID = gerarProximoID($usuarios);
+
+    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+    $novoUsuario = [
+        "id" => $proximoID,
+        "nome" => $nome,
+        "email" => $email,
+        "senha" => $senhaHash
+    ];
+
+    $usuarios[] = $novoUsuario;
+
+    file_put_contents(
+        $arquivoJson,
+        json_encode($usuarios, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)
+    );
+}
+
+//__________________________________________________________________________________________________
+
+// Função para verificar se o e-mail ja existe
+function emailJaExiste($usuarios, $email) {
+    foreach ($usuarios as $usuario) {
+        if (isset($usuario['email']) && $usuario['email'] === $email) {
+            return true;
+        }
+    }
+
+    return false;
+}

@@ -290,3 +290,22 @@ body{
     color: #4e2f1f;
     font-weight: bold;
 }
+
+.mensagem {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.mensagem.erro {
+    color: #b22222;
+}
+
+.mensagem.sucesso {
+    color: #2e7d32;
+}
+
+.grupo-input-erro {
+    border: 2px solid #c62828 !important;
+}

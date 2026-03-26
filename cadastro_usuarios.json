@@ -1,8 +1,14 @@
 [
     {
         "id": 1,
-        "nome": "Caio Daniel Bezerra de Melo",
-        "email": "caiodaniel123@gmail.com",
-        "senha": "123456"
+        "nome": "CAIO DANIEL BEZERRA DE MELO",
+        "email": "admin2223@gmail.com",
+        "senha": "$2y$10$u2OSBd24V7efd22Ytg7X0uc2tNh9Pt.\/9sWdhEs5dPHSy1p9m6602"
+    },
+    {
+        "id": 2,
+        "nome": "CAIO DANIEL BEZERRA DE MELO",
+        "email": "admin@gmail.com",
+        "senha": "$2y$10$MMQdhd26pOy6bDbAIhfAdOIfDN4tesuRBn0aQscTsQe73P8swC6by"
     }
 ]
