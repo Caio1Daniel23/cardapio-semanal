@@ -7,6 +7,7 @@ $mensagem = "";
 $tipoMensagem = "";
 $mostrarCadastro = false;
 $emailComErro = false;
+$formularioMensagem = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $acao = $_POST["acao"] ?? "";
@@ -22,16 +23,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $mensagem = "Preencha todos os campos do cadastro.";
             $tipoMensagem = "erro";
             $mostrarCadastro = true;
+            $formularioMensagem = "cadastro";
         } elseif (emailJaExiste($usuarios, $email)) {
             $mensagem = "Este e-mail já está cadastrado.";
             $tipoMensagem = "erro";
             $mostrarCadastro = true;
             $emailComErro = true;
+            $formularioMensagem = "cadastro";
         } else {
             cadastrarUsuario($arquivoJson, $nome, $email, $senha);
             $mensagem = "Usuário cadastrado com sucesso!";
             $tipoMensagem = "sucesso";
             $mostrarCadastro = true;
+            $formularioMensagem = "cadastro";
         }
     }
 
@@ -42,9 +46,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($usuario === "" || $senhaLogin === "") {
             $mensagem = "Preencha usuário e senha para entrar.";
             $tipoMensagem = "erro";
+            $formularioMensagem = "login";
         } else {
             $mensagem = "A validação do login será a próxima etapa.";
             $tipoMensagem = "sucesso";
+            $formularioMensagem = "login";
         }
     }
 }
@@ -64,8 +70,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div class="cabecalho-login">
             <h1>ACESSO EXCLUSIVO AO CARDÁPIO E RESERVAS</h1>
-            <h2 id="titulo-login" style="<?php echo $mostrarCadastro ? 'display: none;' : 'display: block;'; ?>">LOGIN DO RESTAURANTE</h2>
-            <h2 id="titulo-cadastro" style="<?php echo $mostrarCadastro ? 'display: block;' : 'display: none;'; ?>">CADASTRO DE USUÁRIO</h2>
+            <h2 id="titulo-login" style="<?php echo $mostrarCadastro ? 'display: none;' : 'display: block;'; ?>">
+                LOGIN DO RESTAURANTE
+            </h2>
+            <h2 id="titulo-cadastro" style="<?php echo $mostrarCadastro ? 'display: block;' : 'display: none;'; ?>">
+                CADASTRO DE USUÁRIO
+            </h2>
         </div>
 
         <div class="card-login">
@@ -96,6 +106,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
 
                     <button type="submit">ENTRAR</button>
+
+                    <?php if ($mensagem !== "" && $formularioMensagem === "login"): ?>
+                        <p class="mensagem <?php echo $tipoMensagem; ?>" id="mensagem-login">
+                            <?php echo htmlspecialchars($mensagem); ?>
+                        </p>
+                    <?php endif; ?>
                 </form>
 
                 <form id="form-cadastro" method="POST" style="<?php echo $mostrarCadastro ? 'display: flex;' : 'display: none;'; ?>">
@@ -106,7 +122,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <div class="icone-input">
                             <img src="assets/img/icone-usuario.png" alt="Nome">
                         </div>
-                        <input type="text" id="cadastro-nome" name="nome" value="<?php echo htmlspecialchars($_POST['nome'] ?? ''); ?>">
+                        <input
+                            type="text"
+                            id="cadastro-nome"
+                            name="nome"
+                            value="<?php echo htmlspecialchars($_POST['nome'] ?? ''); ?>">
                     </div>
 
                     <label for="cadastro-email">E-mail</label>
@@ -130,15 +150,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
 
                     <button type="submit">CADASTRAR</button>
+
+                    <?php if ($mensagem !== "" && $formularioMensagem === "cadastro"): ?>
+                        <p class="mensagem <?php echo $tipoMensagem; ?>" id="mensagem-cadastro">
+                            <?php echo htmlspecialchars($mensagem); ?>
+                        </p>
+                    <?php endif; ?>
                 </form>
 
             </div>
-
-            <?php if ($mensagem !== ""): ?>
-                <p class="mensagem <?php echo $tipoMensagem; ?>">
-                    <?php echo htmlspecialchars($mensagem); ?>
-                </p>
-            <?php endif; ?>
 
         </div>
 

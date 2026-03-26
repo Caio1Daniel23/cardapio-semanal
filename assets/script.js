@@ -1,38 +1,59 @@
+const formLogin = document.getElementById('form-login');
+const mensagemLogin = document.getElementById('mensagem-login');
 
-        const formLogin = document.getElementById('form-login');
-        const formCadastro = document.getElementById('form-cadastro');
+const formCadastro = document.getElementById('form-cadastro');
+const mensagemCadastro = document.getElementById('mensagem-cadastro');
 
-        const textoLogin = document.getElementById('texto-login');
-        const textoCadastro = document.getElementById('texto-cadastro');
+const textoLogin = document.getElementById('texto-login');
+const textoCadastro = document.getElementById('texto-cadastro');
 
-        const abrirCadastro = document.getElementById('abrir-cadastro');
-        const voltarLogin = document.getElementById('voltar-login');
+const abrirCadastro = document.getElementById('abrir-cadastro');
+const voltarLogin = document.getElementById('voltar-login');
 
-        const tituloLogin = document.getElementById('titulo-login');
-        const tituloCadastro = document.getElementById('titulo-cadastro');
+const tituloLogin = document.getElementById('titulo-login');
+const tituloCadastro = document.getElementById('titulo-cadastro');
 
-        abrirCadastro.addEventListener('click', function (event) {
-            event.preventDefault();
 
-            formLogin.style.display = 'none';
-            formCadastro.style.display = 'flex';
+// Função para abrir o formulário de cadastro
+abrirCadastro.addEventListener('click', function (event) {
+    event.preventDefault();
 
-            textoLogin.style.display = 'none';
-            textoCadastro.style.display = 'block';
+    formLogin.style.display = 'none';
+    formCadastro.style.display = 'flex';
 
-            tituloLogin.style.display = 'none';
-            tituloCadastro.style.display = 'block';
-        });
+    textoLogin.style.display = 'none';
+    textoCadastro.style.display = 'block';
 
-        voltarLogin.addEventListener('click', function (event) {
-            event.preventDefault();
+    tituloLogin.style.display = 'none';
+    tituloCadastro.style.display = 'block';
 
-            formCadastro.style.display = 'none';
-            formLogin.style.display = 'flex';
+    if (mensagemLogin) {
+        mensagemLogin.style.display = 'none';
+    }
 
-            textoCadastro.style.display = 'none';
-            textoLogin.style.display = 'block';
+    if (mensagemCadastro) {
+        mensagemCadastro.style.display = 'none';
+    }
+});
 
-            tituloCadastro.style.display = 'none';
-            tituloLogin.style.display = 'block';
-        });
+// Função para voltar ao formulário de login
+voltarLogin.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    formCadastro.style.display = 'none';
+    formLogin.style.display = 'flex';
+
+    textoCadastro.style.display = 'none';
+    textoLogin.style.display = 'block';
+
+    tituloCadastro.style.display = 'none';
+    tituloLogin.style.display = 'block';
+
+    if (mensagemLogin) {
+        mensagemLogin.style.display = 'none';
+    }
+
+    if (mensagemCadastro) {
+        mensagemCadastro.style.display = 'none';
+    }
+});
