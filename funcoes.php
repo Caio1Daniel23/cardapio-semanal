@@ -151,3 +151,17 @@ function emailJaExiste($usuarios, $email) {
 
     return false;
 }
+
+//__________________________________________________________________________________________________
+
+function buscarUsuarioPorLogin($usuarios, $loginDigitado) {
+    foreach ($usuarios as $usuario) {
+        if(
+            (isset($usuario['email']) && $usuario['email'] === $loginDigitado) ||
+            (isset($usuario['nome']) && $usuario['nome'] === $loginDigitado)
+        ){
+            return $usuario;
+        }
+    }
+    return null;
+}

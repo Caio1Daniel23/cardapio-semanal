@@ -10,5 +10,11 @@
         "nome": "CAIO DANIEL BEZERRA DE MELO",
         "email": "admin@gmail.com",
         "senha": "$2y$10$MMQdhd26pOy6bDbAIhfAdOIfDN4tesuRBn0aQscTsQe73P8swC6by"
+    },
+    {
+        "id": 3,
+        "nome": "teste01",
+        "email": "teste@gmail.com",
+        "senha": "$2y$10$3A8K.moaYvIPbAze6JHttOygRInO\/aT3TLjj8Pl40JpW2KifIzWMu"
     }
 ]

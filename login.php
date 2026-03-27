@@ -12,6 +12,7 @@ $formularioMensagem = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $acao = $_POST["acao"] ?? "";
 
+    // Verifica se o formulário de cadastro foi submetido
     if ($acao === "cadastro") {
         $nome = trim($_POST["nome"] ?? "");
         $email = trim($_POST["email"] ?? "");
@@ -39,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 
+    // Verifica se o formulário de login foi submetido 
     if ($acao === "login") {
         $usuario = trim($_POST["usuario"] ?? "");
         $senhaLogin = trim($_POST["senha"] ?? "");
@@ -48,9 +50,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $tipoMensagem = "erro";
             $formularioMensagem = "login";
         } else {
-            $mensagem = "A validação do login será a próxima etapa.";
-            $tipoMensagem = "sucesso";
-            $formularioMensagem = "login";
+            $usuarios = carregarUsuarios($arquivoJson);
+
+            $usuarioEncontrado = buscarUsuarioPorLogin($usuarios, $usuario);
+
+            if ($usuarioEncontrado) {
+                if (password_verify($senhaLogin, $usuarioEncontrado['senha'])) {
+                    $mensagem = "Login realizado com sucesso!";
+                    $tipoMensagem = "sucesso";
+                    $formularioMensagem = "login";
+                }else {
+                    $mensagem = "Senha incorreta.";
+                    $tipoMensagem = "erro";
+                    $formularioMensagem = "login";
+                }
+            } else {
+                $mensagem = "Usuário NÃO encontrado!";
+                $tipoMensagem = "erro";
+                $formularioMensagem = "login";
+            }
         }
     }
 }
