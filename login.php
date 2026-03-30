@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 require_once __DIR__ . "/funcoes.php";
 
 $arquivoJson = __DIR__ . "/cadastro_usuarios.json";
@@ -8,6 +11,26 @@ $tipoMensagem = "";
 $mostrarCadastro = false;
 $emailComErro = false;
 $formularioMensagem = "";
+
+if (isset($_GET["status"])) {
+    if ($_GET["status"] === "sucesso") {
+        $mensagem = "Login realizado com sucesso!";
+        $tipoMensagem = "sucesso";
+        $formularioMensagem = "login";
+    }
+
+    if ($_GET["status"] === "senha_incorreta") {
+        $mensagem = "Senha incorreta.";
+        $tipoMensagem = "erro";
+        $formularioMensagem = "login";
+    }
+
+    if ($_GET["status"] === "usuario_nao_encontrado") {
+        $mensagem = "Usuário NÃO encontrado!";
+        $tipoMensagem = "erro";
+        $formularioMensagem = "login";
+    }
+}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $acao = $_POST["acao"] ?? "";
@@ -55,19 +78,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $usuarioEncontrado = buscarUsuarioPorLogin($usuarios, $usuario);
 
             if ($usuarioEncontrado) {
-                if (password_verify($senhaLogin, $usuarioEncontrado['senha'])) {
-                    $mensagem = "Login realizado com sucesso!";
-                    $tipoMensagem = "sucesso";
-                    $formularioMensagem = "login";
-                }else {
-                    $mensagem = "Senha incorreta.";
-                    $tipoMensagem = "erro";
-                    $formularioMensagem = "login";
+                if (password_verify($senhaLogin, $usuarioEncontrado["senha"])) {
+                    $_SESSION["usuario_logado"] = true;
+                    $_SESSION["nome"] = $usuarioEncontrado["nome"];
+                    $_SESSION["email"] = $usuarioEncontrado["email"];
+
+                    header("Location: painel.php");
+                    exit;
+                } else {
+                    header("Location: login.php?status=senha_incorreta");
+                    exit;
                 }
             } else {
-                $mensagem = "Usuário NÃO encontrado!";
-                $tipoMensagem = "erro";
-                $formularioMensagem = "login";
+                header("Location: login.php?status=usuario_nao_encontrado");
+                exit;
             }
         }
     }
