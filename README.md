@@ -34,27 +34,21 @@ Sistema web simples para gerenciamento de cardápio semanal (segunda a sexta), c
 
 cardapio-semanal/
 │
-├── index.php # Página pública do cardápio
-├── login.php # Tela de login e cadastro
-├── painel.php # Painel administrativo
-├── logout.php # Encerrar sessão
-├── funcoes.php # Funções auxiliares
+├── index.php
+├── login.php
+├── painel.php
+├── logout.php
+├── funcoes.php
 │
-├── cardapio.json # Dados do cardápio
-├── cadastro_usuarios.json # Dados dos usuários
+├── cardapio.json
+├── cadastro_usuarios.json
 │
 └── assets/
-├── style.css # Estilo geral
-└── painel.css # Estilo do painel
+    ├── style.css
+    └── painel.css
+    └── script.js
+    └── img
 
-
----
-
-## 🔐 Autenticação
-
-O sistema utiliza:
-
-- `password_hash()` para criptografar 
 
 ---
 
