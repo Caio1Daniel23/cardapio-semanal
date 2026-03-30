@@ -1,20 +1,32 @@
 [
     {
-        "dia": "Segunda"
+        "dia": "Segunda",
+        "cafe": "Pão francês com manteiga, Café com leite, Banana",
+        "almoco": "Arroz, Feijão, Frango grelhado, Salada de alface e tomate",
+        "jantar": "Sopa de legumes, Torradas integrais"
     },
     {
-        "dia": "Terça"
+        "dia": "Terça",
+        "cafe": "Pão integral com queijo, Suco de laranja, Mamão",
+        "almoco": "Arroz, Feijão, Carne moída, Purê de batata, Salada de cenoura",
+        "jantar": "Omelete de queijo, Salada verde"
     },
     {
-        "dia": "Quarta"
+        "dia": "Quarta",
+        "cafe": "Cuscuz com manteiga, Café preto, Maçã",
+        "almoco": "Arroz, Feijão, Bife grelhado, Farofa, Salada de repolho",
+        "jantar": "Macarrão ao molho de tomate, Queijo ralado"
     },
     {
-        "dia": "Quinta"
+        "dia": "Quinta",
+        "cafe": "Tapioca com queijo, Suco de maracujá, Melão",
+        "almoco": "Arroz, Feijão, Frango assado, Batata doce, Salada de rúcula",
+        "jantar": "Sanduíche natural (frango desfiado), Suco natural"
     },
     {
         "dia": "Sexta",
-        "cafe_da_manha": "arroz, feijão, frango grelhado, salada mistaarroz, feijão, frango grelhado, salada mistaarroz, feijão, frango grelhado, salada mista",
-        "almoco": "arroz, feijão, frango grelhado, salada mistaarroz, feijão, frango grelhado, salada mistaarroz, feijão, frango grelhado, salada mista",
-        "jantar": "arroz, feijão, frango grelhado, salada mistaarroz, feijão, frango grelhado, salada mistaarroz, feijão, frango grelhado, salada mista"
+        "cafe": "Pão de forma com requeijão, Café com leite, Pera",
+        "almoco": "Arroz, Feijão, Peixe grelhado, Legumes cozidos, Salada de beterraba",
+        "jantar": "Pizza caseira, Suco de uva"
     }
 ]

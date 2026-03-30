@@ -30,7 +30,7 @@ $cardapio = carregarCardapio($arquivoJson);
                     <div class="bloco-refeicao cafe-da-manha">
                         <img class="icone-refeicao" src="assets/img/cafe02.png" alt="">
                         <h3>Café da manhã</h3>
-                        <p><?php echo $item['cafe_da_manha'] ?? 'Sem cardápio neste dia'; ?></p>
+                        <p><?php echo trim($item['cafe'] ?? '') !== '' ? htmlspecialchars($item['cafe']) : 'Sem cardápio neste dia'; ?></p>
                     </div>
 
                     <div class="bloco-refeicao almoco">
@@ -38,13 +38,13 @@ $cardapio = carregarCardapio($arquivoJson);
                         <h3>
                             Almoço
                         </h3>
-                        <p><?php echo $item['almoco'] ?? 'Sem cardápio neste dia'; ?></p>
+                        <p><?php echo trim($item['almoco'] ?? '') !== '' ? htmlspecialchars($item['almoco']) : 'Sem cardápio neste dia'; ?></p>
                     </div>
 
                     <div class="bloco-refeicao jantar">
                         <img class="icone-refeicao" src="assets/img/jantar.png" alt="">
                         <h3>Jantar</h3>
-                        <p><?php echo $item['jantar'] ?? 'Sem cardápio neste dia'; ?></p>
+                        <p><?php echo trim($item['jantar'] ?? '') !== '' ? htmlspecialchars($item['jantar']) : 'Sem cardápio neste dia'; ?></p>
                     </div>
                 </article>
             <?php endforeach; ?>
