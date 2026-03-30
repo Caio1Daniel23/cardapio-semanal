@@ -99,6 +99,22 @@ No painel administrativo, o usuário pode:
 
 ---
 
+## 🖼️ Preview
+
+### 🏠 Página inicial
+![Home](assets/img/home.png)
+
+### 🔐 Login
+![Login](assets/img/login.png)
+
+### 📝 Cadastro
+![Cadastro](assets/img/cadastro.png)
+
+### ⚙️ Painel
+![Painel](assets/img/painel.png)
+
+---
+
 ## 👨‍💻 Autor
 
 Caio Daniel
